@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TravelTip</title>
-</head>
-<body>
-    <h1>TravelTip Starter</h1>
-    <div id="map" style="width: 100%; height: 400px;"></div>
-    <button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button>
-    <button onclick="onGetUserPos()" class="btn-user-pos">Get User Position</button>
-    <button onclick="onPanToUserPos()" >My Place</button>
-    <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
-    <button onclick="onPanTo()"class="btn-pan">Pan Map to Tokyo</button>
-    <input type="search" name="search-input" class="search-input"  onchange="onSearch()"/>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="layout">
+    <div class="full">
+      <div class="travel-tip-container">
+        <div class="top-container">
+          <h1>TravelTip Starter</h1>
+          <div class="location-buttons">
+            <form class="search-form">
+              <input type="search" name="search-input" class="search-input" onchange="onSearch()" placeholder="Enter Location!" />
+              <button class="go-btn">GO</button>
+            </form>
+            <button onclick="onPanToUserPos()" class="location-btn">My Place</button>
+          </div>
+        </div>
+        <button onclick="onGetUserPos()" class="btn-user-pos">My Current Location</button>
+        <!-- <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button> -->
+        <div class="middle-container">
+          <p>Location: <span class="user-pos"></span></p>
+          <button onclick="onCopyLink()" class="btn-copy-link">Copy Location</button>
+        </div>
+        <button onclick="handleMarker()" class="btn-add-marker">Turn Marker On/Off</button>
+        <div class="bottom-container">
+          <div class="bottom-left-container">
+            <div class="weather">Weather today</div>
 
-    <p>You are at: <span class="user-pos"></span></p>
-    <p>Locations: 
-     
-        <section class="locations-container">
-            
-        </section>
-    </p>
-
+            <button onclick="onShowWeather(34.00, 34.00)" class="btn-show-weather">Show Weather</button>
+            <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
+          </div>
+          <div id="map" style="width: 60%; height: 400px" class="map"></div>
+        </div>
+        <section class="locations-container"></section>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="js/app.controller.js"></script>
-</body>
+  </body>
 </html>

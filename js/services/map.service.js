@@ -2,6 +2,7 @@ export const mapService = {
   initMap,
   addMarker,
   panTo,
+  getMapCenter,
 };
 
 // Var that is used throughout this Module (not global)
@@ -34,7 +35,7 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
       infoWindow.setContent(JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2));
       const jsonString = JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2);
       const obj = JSON.parse(jsonString);
-      console.log(obj);
+      onAddMarker(obj);
       infoWindow.open(gMap);
     });
 
@@ -68,4 +69,8 @@ function _connectGoogleApi() {
     elGoogleApi.onload = resolve;
     elGoogleApi.onerror = () => reject('Google script failed to load');
   });
+}
+function getMapCenter() {
+  const center = gMap.getCenter();
+  return { lat: center.lat(), lng: center.lng() };
 }

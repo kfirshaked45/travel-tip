@@ -1,0 +1,82 @@
+/* .layout {
+  display: grid;
+  grid-template-columns: 20px 800px 20px;
+}
+.full {
+  grid-column: 2/3;
+}
+.notfull {
+  grid-column: 2;
+} */
+.travel-tip-container {
+  background-color: rgb(225, 114, 86);
+  width: 40%;
+  height: 100%;
+}
+.location-buttons {
+  display: flex;
+}
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  margin-inline-start: 10px;
+}
+.middle-container {
+  display: flex;
+  flex-direction: row;
+  margin-inline-start: 10px;
+  justify-content: space-between;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: space-between;
+}
+.bottom-left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-inline-start: 10px;
+}
+
+.btn-get-locs {
+  background-color: rgb(55, 120, 232);
+  border: 2px solid rgb(2, 2, 125);
+  color: white;
+  width: 280px;
+  height: 25%;
+  text-align: center;
+}
+.weather {
+  width: 280px;
+  height: 40%;
+  text-align: center;
+  background-color: white;
+}
+.location-buttons {
+  margin-block-start: 30px;
+}
+.go-btn {
+  background-color: gray;
+  color: white;
+  border: 1px solid black;
+  height: 40px;
+  width: 80px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.location-btn {
+  background-color: gray;
+  color: white;
+  border: 1px solid black;
+  height: 40px;
+  width: 130px;
+  font-weight: 600;
+  font-size: 16px;
+}
+.search-input {
+  background-color: rgb(229, 223, 223);
+  border: 1px solid black;
+  height: 40px;
+  font-size: 16px;
+}
