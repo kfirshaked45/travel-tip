@@ -35,11 +35,7 @@ function remove(locationId) {
 }
 
 function save(location) {
-  if (location.id) {
-    return storageService.put(LOCATION_KEY, location);
-  } else {
-    return storageService.post(LOCATION_KEY, location);
-  }
+  return storageService.post(LOCATION_KEY, location);
 }
 
 function saveLocation(name = 'New place', lat = 0, lng = 0) {

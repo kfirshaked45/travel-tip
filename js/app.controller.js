@@ -44,7 +44,7 @@ function onSearch() {
         const lat = location.lat();
         const lng = location.lng();
         const name = results[0].formatted_address;
-        locService.addPlace({ name, lat, lng });
+        locService.saveLocation(name, lat, lng);
         mapService.panTo(lat, lng);
       } else {
         console.log('Geocode was not successful for the following reason: ' + status);
@@ -53,11 +53,6 @@ function onSearch() {
   }, 500);
 
   address.addEventListener('input', debouncedOnInput);
-}
-function searchInput(ev) {
-  const value = ev.target.value;
-  console.log(value);
-  return value;
 }
 
 function onGetLocs() {
