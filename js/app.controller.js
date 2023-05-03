@@ -33,7 +33,7 @@ function onGetLocs() {
   locService.getLocs().then((locs) => {
     console.log('Locations:', locs);
 
-    document.querySelector('.locs').innerText = JSON.stringify(locs, null, 2);
+    document.querySelector('.locations-container').innerText = JSON.stringify(locs, null, 2);
   });
 }
 

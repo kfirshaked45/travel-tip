@@ -10,7 +10,7 @@ export const locService = {
   get,
   remove,
   save,
-  getEmptyLocation,
+  saveLocation,
   createDemoLocations,
   getLocs,
 };
@@ -42,24 +42,25 @@ function save(location) {
   }
 }
 
-function getEmptyLocation(name = '', lat = 0, lng = 0) {
-  return {
-    id: '',
+function saveLocation(name = 'New place', lat = 0, lng = 0) {
+  const location = {
+    id: utilService.makeId(),
     name,
     lat,
     lng,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   };
+  save(location);
 }
 
 function createDemoLocations() {
   const locations = [
-    { name: 'Greatplace', lat: 32.047104, lng: 34.832384 },
-    { name: 'Neveragain', lat: 32.047201, lng: 34.832581 },
-    { name: 'LostCity', lat: 35.1001, lng: -106.6706 },
-    { name: 'City of the Dead', lat: 29.9823, lng: 31.1342 },
-    { name: 'Abandoned Island', lat: 1.3542, lng: 103.9915 },
+    { id: utilService.makeId(), name: 'Greatplace', lat: 32.047104, lng: 34.832384 },
+    { id: utilService.makeId(), name: 'Neveragain', lat: 32.047201, lng: 34.832581 },
+    { id: utilService.makeId(), name: 'LostCity', lat: 35.1001, lng: -106.6706 },
+    { id: utilService.makeId(), name: 'City of the Dead', lat: 29.9823, lng: 31.1342 },
+    { id: utilService.makeId(), name: 'Abandoned Island', lat: 1.3542, lng: 103.9915 },
   ];
   return utilService.saveToStorage(LOCATION_KEY, locations);
 }
