@@ -8,7 +8,7 @@ window.onPanTo = onPanTo;
 window.onGetLocs = onGetLocs;
 window.onGetUserPos = onGetUserPos;
 window.onSearch = onSearch;
-window.searchInput = searchInput;
+window.onPanToUserPos = onPanToUserPos;
 
 function onInit() {
   mapService
@@ -79,4 +79,13 @@ function onGetUserPos() {
 function onPanTo() {
   console.log('Panning the Map');
   mapService.panTo(35.6895, 139.6917);
+}
+function onPanToUserPos() {
+  getPosition()
+    .then((pos) => {
+      mapService.panTo(pos.coords.latitude, pos.coords.longitude);
+    })
+    .catch((err) => {
+      console.log('err!!!', err);
+    });
 }
