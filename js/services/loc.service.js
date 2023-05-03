@@ -27,7 +27,7 @@ function getLocs() {
 }
 
 function get(locationId) {
-  return storageService.get(LOCATION_KEY, locationId);
+  return storageService.get(LOCATION_KEY, locationId).then((res) => console.log('here', res));
 }
 
 function remove(locationId) {
